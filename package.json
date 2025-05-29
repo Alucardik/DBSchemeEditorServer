@@ -1,0 +1,30 @@
+{
+  "name": "dbschemeeditorserver",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npx tsx ./src/app.ts"
+  },
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "morgan": "~1.9.1",
+    "pg": "^8.16.0",
+    "pg-format": "^1.0.4"
+  },
+  "devDependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/cors": "^2.8.18",
+    "@types/debug": "^4.1.12",
+    "@types/express": "^5.0.2",
+    "@types/morgan": "^1.9.9",
+    "@types/node": "^22.15.24",
+    "@types/pg": "^8.15.2",
+    "@types/pg-format": "^1.0.5",
+    "express": "^5.1.0",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3"
+  }
+}
