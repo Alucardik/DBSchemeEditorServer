@@ -1,5 +1,5 @@
-import { Attribute, AttributeConstraint, AttributeType } from "@/models/attributes"
-import { RelationshipDestination, Scheme } from "@/models/scheme"
+import { Attribute, AttributeConstraint, AttributeType } from "../models/attributes.js"
+import { RelationshipDestination, Scheme } from "../models/scheme.js"
 import {
     DuplicateAttributes,
     DuplicateEntities,
@@ -7,8 +7,8 @@ import {
     NoScheme,
     UnknownAttributeType,
     UnknownConstraint
-} from "@/models/errors"
-import { Optional } from "@/utils/optional"
+} from "../models/errors.js"
+import { Optional } from "../utils/optional.js"
 import format from "pg-format"
 
 export class QueryBuilder {

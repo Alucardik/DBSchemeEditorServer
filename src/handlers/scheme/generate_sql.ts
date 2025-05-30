@@ -1,7 +1,7 @@
-import type { Scheme as SchemeDTO } from "@/dto/scheme"
-import { Scheme } from "@/models/scheme"
-import { HTTPStatuses } from "@/utils/http"
-import { QueryBuilder } from "@/db/query_builder"
+import type { Scheme as SchemeDTO } from "../../dto/scheme.js"
+import { Scheme } from "../../models/scheme.js"
+import { HTTPStatuses } from "../../utils/http.js"
+import { QueryBuilder } from "../../db/query_builder.js"
 import { Request, Response } from "express"
 
 

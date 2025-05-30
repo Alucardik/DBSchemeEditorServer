@@ -1,5 +1,5 @@
-import { Attribute } from "@/models/attributes"
-import type * as dto from "@/dto/scheme"
+import { Attribute } from "./attributes.js"
+import type * as dto from "../dto/scheme.js"
 
 
 class TableDependency {

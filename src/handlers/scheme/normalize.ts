@@ -1,7 +1,7 @@
-import { Scheme } from "@/models/scheme"
-import type { Scheme as SchemeDTO } from "@/dto/scheme"
-import { HTTPStatuses } from "@/utils/http"
-import { Normalizer } from "@/relational/normalization"
+import { Scheme } from "../../models/scheme.js"
+import type { Scheme as SchemeDTO } from "../../dto/scheme.js"
+import { HTTPStatuses } from "../../utils/http.js"
+import { Normalizer } from "../../relational/normalization.js"
 import { Request, Response } from "express"
 
 export default async function handler(req: Request, res: Response) {

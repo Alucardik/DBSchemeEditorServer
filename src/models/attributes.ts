@@ -1,4 +1,4 @@
-import type { Attribute as AttributeDTO } from "@/libs/dto/scheme"
+import type { Attribute as AttributeDTO } from "../dto/scheme.js"
 
 enum AttributeType {
     Unknown = -1,

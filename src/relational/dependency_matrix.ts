@@ -1,6 +1,6 @@
 // Functional Dependency: LHS → RHS (LHS - determinant attributes, RHS - dependent attributes)
-import { TableDependency } from "@/models/scheme"
-import type { Optional } from "@/utils/optional"
+import { TableDependency } from "../models/scheme.js"
+import type { Optional } from "../utils/optional.js"
 
 interface FD {
     lhs: Set<string>
@@ -449,7 +449,7 @@ export class DependencyMatrix {
         return false
     }
 
-    private FollowPseudoTransitivePath(this: DependencyMatrix, relations: [string[], number][][], startRow: number, currRow: number, prevRows: Set<number>): [] {
+    private FollowPseudoTransitivePath(this: DependencyMatrix, relations: [string[], number][][], startRow: number, currRow: number, prevRows: Set<number>) {
         for (const attrName of this.canonizedRows[currRow].rhs) {
             // we erase dependencies only if we are not currently in the startRow
             if (startRow !== currRow) {

@@ -5,18 +5,16 @@
     "allowJs": false,
     "skipLibCheck": true,
     "strict": true,
-    "noEmit": true,
+    "noEmit": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": false,
     "isolatedModules": true,
     "incremental": true,
-    "types": ["pg"],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    "outDir": "dist",
+    "types": ["pg"]
   },
-  "include": ["**/*.ts", "src/**/*.ts"],
+  "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]
 }

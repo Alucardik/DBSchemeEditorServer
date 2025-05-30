@@ -1,8 +1,8 @@
-import { Scheme } from "@//models/scheme"
-import pool from "@/db/postres"
-import type { Scheme as SchemeDTO } from "@/dto/scheme"
-import { HTTPStatuses } from "@/utils/http"
-import { QueryBuilder } from "@/db/query_builder"
+import { Scheme } from "../../models/scheme.js"
+import pool from "../../db/postres.js"
+import type { Scheme as SchemeDTO } from "../../dto/scheme.js"
+import { HTTPStatuses } from "../../utils/http.js"
+import { QueryBuilder } from "../../db/query_builder.js"
 import { Request, Response } from "express"
 
 export default async function handler(req: Request, res: Response) {

@@ -1,7 +1,7 @@
-import { Attribute, AttributeConstraint, KeyTypeConstraints } from "@/models/attributes"
-import { Relationship, RelationshipDestination, Scheme, Table } from "@/models/scheme"
-import { DependencyMatrix } from "@/relational/dependency_matrix"
-import { Optional } from "@/utils/optional"
+import { Attribute, AttributeConstraint, KeyTypeConstraints } from "../models/attributes.js"
+import { Relationship, RelationshipDestination, Scheme, Table } from "../models/scheme.js"
+import { DependencyMatrix } from "./dependency_matrix.js"
+import { Optional } from "../utils/optional.js"
 
 class NormalFormViolation {
     tableName: string = ""
@@ -142,6 +142,7 @@ export class Normalizer {
             // TODO: add constructor from classes instead of DTO
             return new Table({
                 name: table.name + `Part${index + 1}`,
+                // @ts-ignore
                 attributes: attributes,
                 dependencies: [],
             })

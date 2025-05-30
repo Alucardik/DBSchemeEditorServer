@@ -1,9 +1,8 @@
-import { getAppPort, setupCORS } from "@/utils/configuration"
+import { getAppPort, setupCORS } from "./utils/configuration.js"
 import express from "express"
-import path from "path"
 import cookieParser from "cookie-parser"
 import logger from "morgan"
-import indexRouter from "../routes/index"
+import indexRouter from "./routes/index.js"
 import http from "http"
 import debug from "debug"
 
@@ -16,7 +15,6 @@ function initApp(): express.Application {
     app.use(express.json())
     app.use(express.urlencoded({ extended: false }))
     app.use(cookieParser())
-    app.use(express.static(path.join(__dirname, "public")))
 
     app.use("/api", indexRouter)
 
