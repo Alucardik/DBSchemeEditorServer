@@ -105,7 +105,7 @@ class Relationship {
         }
 
         this.from = new RelationshipDestination((from as dto.Relationship).from)
-
+        this.to = new RelationshipDestination((from as dto.Relationship).to)
     }
 
     ToDTO(this: Relationship): dto.Relationship {

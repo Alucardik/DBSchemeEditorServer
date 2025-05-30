@@ -23,10 +23,10 @@ export class QueryBuilder {
 
         const attributesMap = new Map<string, Set<string>>()
 
-        for (const entity of scheme.tables) {
+        for (const table of scheme.tables) {
             const attributeNames = new Set<string>()
 
-            for (const attribute of entity.attributes) {
+            for (const attribute of table.attributes) {
                 if (attribute.type < 0 || attribute.type > AttributeType.Boolean) {
                     return UnknownAttributeType
                 }
@@ -40,16 +40,15 @@ export class QueryBuilder {
                 attributeNames.add(attribute.name)
             }
 
-            if (attributeNames.size !== entity.attributes.length) {
+            if (attributeNames.size !== table.attributes.length) {
                 return DuplicateAttributes
             }
 
-            attributesMap.set(entity.name, attributeNames)
+            attributesMap.set(table.name, attributeNames)
         }
 
         const verifyDestination = (dest: RelationshipDestination): boolean => {
             const attributes = attributesMap.get(dest.tableName)
-
             if (!attributes || dest.attributeNames.length === 0) {
                 return false
             }
