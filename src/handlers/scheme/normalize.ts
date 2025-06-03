@@ -6,21 +6,18 @@ import { Request, Response } from "express"
 
 export default async function handler(req: Request, res: Response) {
     let rawScheme = req.body as SchemeDTO
+    if (!rawScheme?.tables || !rawScheme?.relationships) {
+        res.status(HTTPStatuses.BAD_REQUEST).json({message: "empty scheme"})
+        return
+    }
 
     let nf = 3
     if (req.query["nf"] === "2") {
         nf = 2
     }
 
-    if (!rawScheme?.tables || !rawScheme?.relationships) {
-        res.status(HTTPStatuses.BAD_REQUEST).json({message: "empty scheme"})
-        return
-    }
-
     const scheme = new Scheme(rawScheme)
     const normalizer = new Normalizer(scheme)
-
-    console.log("normal form", nf)
 
     const [newScheme, violations] = nf === 2 ? normalizer.SecondNormalForm() : normalizer.ThirdNormalForm()
     if (violations.length > 0 || !newScheme) {

@@ -7,7 +7,6 @@ import { Request, Response } from "express"
 
 export default async function handler(req: Request, res: Response) {
     let rawScheme = req.body as SchemeDTO
-
     if (!rawScheme?.tables || !rawScheme?.relationships) {
         res.status(HTTPStatuses.BAD_REQUEST).json({message: "bad request"})
         return

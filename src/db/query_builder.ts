@@ -147,6 +147,7 @@ export class QueryBuilder {
     private CreateTableQuery(this: QueryBuilder, tableName: string, attributes: Attribute[]): [string, number[], Optional<Error>] {
         const queryParts = ["CREATE TABLE %I ("] as string[]
         const queryArgs = [tableName]
+        const primaryKeyIndexes = [] as number[]
         const foreignKeyIndexes = [] as number[]
 
         for (const [index, attribute] of attributes.entries()) {
@@ -174,7 +175,7 @@ export class QueryBuilder {
                         attrQuery += " NOT NULL"
                         break
                     case AttributeConstraint.PrimaryKey:
-                        attrQuery += " PRIMARY KEY"
+                        primaryKeyIndexes.push(index)
                         break
                     case AttributeConstraint.ForeignKey:
                         foreignKeyIndexes.push(index)
@@ -188,6 +189,12 @@ export class QueryBuilder {
 
             queryParts.push(attrQuery)
             queryArgs.push(attribute.name)
+        }
+
+        if (primaryKeyIndexes.length > 0) {
+            queryParts[queryParts.length - 1] += ","
+            queryParts.push(`PRIMARY KEY (${primaryKeyIndexes.map(_ => "%I").join(", ")})`)
+            queryArgs.push(...primaryKeyIndexes.map(index => attributes[index].name))
         }
 
         queryParts.push(");")
